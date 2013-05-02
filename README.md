@@ -8,6 +8,27 @@ Maruku implements:
 * All the improvements in PHP Markdown Extra.
 * A new meta-data syntax.
 
+This branch also provides support for tables with colspans using empty pipe characters  
+If you want to span a column you just need to do the following:
+<pre>
+   | h1        | h2  |   h3 |
+   |:----------|:---:|-----:|
+   |c1         | c2  |  c3  |
+   |c1         | c2         ||
+   |c1         ||       c2  |
+   |c1                      |||
+</pre>
+
+This is a somewhat cleaner version of the standard syntax that is supported in Maruku
+<pre>
+   | h1            |       h2  |        h3 |
+   |:--------------|:---------:|----------:|
+   |c1             | c2        |  c3       |
+   |c1             |{:colspan="2"} c2      |
+   |{:colspan="2"}  c1         |       c2  |
+   |{:colspan="3"}       c1                |
+</pre>
+
 Read more about [Maruku's Markdown syntax](http://rdoc.info/github/bhollis/maruku/master/file/docs/markdown_syntax.md). It also supports [inline math](http://rdoc.info/github/bhollis/maruku/master/file/docs/math.m). [Maruku docs](http://rdoc.info/github/bhollis/maruku/master/).
 
 News about Maruku is posted at [http://benhollis.net/blog/category/maruku/](http://benhollis.net/blog/category/maruku/)
